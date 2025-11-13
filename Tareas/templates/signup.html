@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+                <!-- encerrar el formulario de django en las etiquetas form de html, xq no viene por defecto dentro -->
+                <form action="/registrarse/" method="POST" class="card card-body">
+                    {% csrf_token %}
+                    <h1 class="text-center">REGISTRO DE USUARIO NUEVO</h1>
+                    <!-- muestra el error si tiene algo -->
+                    {{ error }}
+
+                    <!-- Sacamos el formulario que crea por defecto django
+                    {{ form }} -->
+
+                    <div class="mb-3">
+                        <label for="username">Nombre de Usuario:</label>
+                        <!-- En id poner el nombre que esta en el for del label para vincularlo -->
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese el nombre de usuario">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password1">Contraseña:</label>
+                        <!-- En id poner el nombre que esta en el for del label para vincularlo -->
+                        <input type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese la contraseña">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password2">Confirmación de contraseña:</label>
+                        <!-- En id poner el nombre que esta en el for del label para vincularlo -->
+                        <input type="password" name="password2" id="password2" class="form-control" placeholder="Ingrese nuevamente la contraseña">
+                    </div>
+
+
+                    <button class="btn btn-primary">
+                        Registrarse
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container py-3">
+    <section class="card card-body">
+    <h1 class="display-5 text-center">PÁGINA DJANGO</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam explicabo rem excepturi minus fugit, vitae modi veniam dicta quaerat praesentium optio. Autem ipsa sunt architecto odit amet modi aspernatur quibusdam.
+    </p>
+
+    <div class="text-center">
+        <a class="btn btn-secondary" href="{% url 'registrarse' %}">
+            Registrarse
+        </a>
+        <a class="btn btn-dark" href="{% url 'login' %}">
+            Iniciar Sesión
+        </a>
+    </div>
+    </section>
+</main>
+
+{% endblock %}

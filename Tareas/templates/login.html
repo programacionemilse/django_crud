@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+                <!-- encerrar el formulario de django en las etiquetas form de html, xq no viene por defecto dentro -->
+                <form action="/login/" method="POST" class="card card-body">
+                    
+                    {% csrf_token %}
+                    
+                    <h1 class="text-center">INICIAR SESIÓN</h1>
+                    <!-- muestra el error si tiene algo -->
+                    {{ error }}
+
+                    <div class="mb-3">
+                        <label for="username">Nombre de Usuario:</label>
+                        <!-- En id poner el nombre que esta en el for del label para vincularlo -->
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese el nombre de usuario">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password">Contraseña:</label>
+                        <!-- En id poner el nombre que esta en el for del label para vincularlo -->
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese la contraseña">
+                    </div>
+
+                    <button class="btn btn-primary">
+                        Iniciar Sesion
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

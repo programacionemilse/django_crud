@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+                <h1 class="text-secondary">{{ d_tarea.titulo }}</h1>
+
+                {{ error }}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+
+                    <button class="btn btn-primary">
+                        Guardar Edición
+                    </button>
+                </form>
+                
+                <div class="mt-3 d-flex">
+                    <form action="{% url 'tareaCompleta' d_tarea.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-secondary">
+                            Tarea Completa
+                        </button>
+                    </form>
+
+                    <form action="{% url 'eliminarTarea' d_tarea.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-danger">Eliminar Tarea</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
